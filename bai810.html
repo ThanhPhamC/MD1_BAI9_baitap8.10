@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            min-height: 100vh;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+<table border="1" style="border-collapse: collapse">
+    <tr>
+        <td align="center" colspan="4">BÀI 8.10 tính cước điện  tiêu dùng   </td>
+    </tr>
+    <tr>
+        <td  width="160px"  align="center" >Số giờ sử dụng: </td>
+        <td > <input id="sogio" placeholder="Nhập số giờ " value="0" >   </td>
+        <td align="center" ><button class="hv" onclick="baiso810()">Kết Quả</button></td>
+    </tr>
+    <tr align="center">
+        <td > số giờ <= 100h đơn giá 5000/1h</td>
+        <td>100h< số giờ <= 200h đơn giá 3000/1h</td>
+        <td>số giờ >200h đơn giá 1000/1h</td>
+    </tr>
+    <tr align="center" >
+        <td><p id="duoi5">Tiền cước =... vnd</p></td>
+        <td><p id="giua5">Tiền cước =... vnd</p></td>
+        <td><p id="tren10">Tiền cước =... vnd</p></td>
+    </tr>
+</table>
+<script>
+    function baiso810() {
+        let tiencuoc = parseFloat(document.getElementById("sogio").value);
+        (tiencuoc <= 0) ? alert("nhập sai số giờ")
+            : (tiencuoc > 200) ? document.getElementById("tren10").innerHTML = "Tiền cước = " + parseFloat(1000 * tiencuoc) + "vnd"
+                : (tiencuoc > 100) ? document.getElementById("giua5").innerHTML = "Tiền cước = " + parseFloat(3000 * tiencuoc) + "vnd"
+                    : document.getElementById("duoi5").innerHTML = "Tiền cước = " + parseFloat(5000 * tiencuoc) + "vnd"
+    }
+</script>
+</body>
+</html>
